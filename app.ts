@@ -8,7 +8,9 @@ import helmet  from 'helmet';
 
 
 
-require('dotenv').config({ path: './src/config/.env' });    
+require('dotenv').config({
+    path: './src/config/.env' 
+});    
 
 
 app.use(cors());
