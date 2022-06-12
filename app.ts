@@ -2,12 +2,13 @@
 //- ########################################################
 //- --------------------- IMPORT ---------------------------
 //- ######################################################## 
-const express  = require('express');
-const cors     = require('cors');
-const app      = express();
+const express         = require('express');
+const cors            = require('cors');
+const app             = express();
 
-import path    from 'path';
-import helmet  from 'helmet';  
+import path           from 'path';
+import helmet         from 'helmet';  
+import {connectedDB}  from './src/config/Connect-db';
 
 require('dotenv').config({ path: './src/config/.env' });    
 //- --------------------------------------------------------
@@ -16,9 +17,16 @@ require('dotenv').config({ path: './src/config/.env' });
 
 
 
+
+
 //* ########################################################
 //* ---------------- Configuration APP ---------------------
 //* ########################################################
+
+//. ----------------- Connection DB ------------------------
+connectedDB();
+//. --------------------------------------------------------
+
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
